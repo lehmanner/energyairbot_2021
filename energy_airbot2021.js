@@ -6,7 +6,6 @@
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js
 // ==/UserScript==
-
 const questions = {
     "MIT WELCHEM ESC-HIT ROCKTE LUCA HÄNNI AM LETZTEN ENERGY AIR DIE BÜHNE?":"She Got Me",
     "WELCHER ACT FEIERTE AM LETZTEN ENERGY AIR MIT EINEM NEUEN SONG EINE WELTPREMIERE?":"Aloe Blacc",
@@ -69,7 +68,7 @@ function answerQuestion () {
             $(el).children('input').trigger('click')
         }
     })
-    setTimeout(nextQuestion, 200) //speed
+    setTimeout(nextQuestion, 560) //speed
 }
 
 function makeAction () {
@@ -86,6 +85,10 @@ function makeAction () {
 	}
     else if (document.getElementsByTagName('h3')[0].textContent == "Du hast die erste Hürde geschafft.  Um welchen Preis möchtest du spielen?") {
         $('.tickets .button button').trigger('click')
+        setTimeout(makeAction, 200)
+    }
+    else if (document.getElementsByTagName('p').length != 0) {
+        $('.jumbotron button').trigger('click')
         setTimeout(makeAction, 200)
     }
 	else {
